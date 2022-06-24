@@ -8,6 +8,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def default_action?
+    true
+  end  
+
   def index?
     false
   end
