@@ -78,6 +78,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-gem 'tailwindcss-rails', '~> 2.0'
 
+gem "view_component"
+gem 'tailwindcss-rails', '~> 2.0'
+gem 'dry-initializer-rails'
 gem 'pundit', '~> 2.2'

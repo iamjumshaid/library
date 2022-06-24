@@ -34,6 +34,9 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'b6bb322af1362973ac2588b162739a999a98125421507f1dae6fe4e0ad489277f0fb1259610daeed0e6586f3fbbb9e0ab488eb2c7964ef0383e55a81c830d788'
 
+  # Devise custom views
+  config.scoped_views = true
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   config.parent_controller = 'TurboDeviseController'
