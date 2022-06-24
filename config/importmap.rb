@@ -10,4 +10,10 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin 'lodash', to: 'https://ga.jspm.io/npm:lodash@4.17.21/lodash.js'
 pin '@hotwired/turbo', to: 'https://ga.jspm.io/npm:@hotwired/turbo@7.1.0/dist/turbo.es2017-esm.js'
 pin '@rails/actioncable/src', to: 'https://ga.jspm.io/npm:@rails/actioncable@7.0.3/src/index.js'
-pin "prettier", to: "https://ga.jspm.io/npm:prettier@2.7.1/standalone.js"
+pin 'prettier', to: 'https://ga.jspm.io/npm:prettier@2.7.1/standalone.js'
+pin 'stimulus-notification', to: 'https://ga.jspm.io/npm:stimulus-notification@2.0.0/dist/stimulus-notification.es.js'
+pin 'hotkeys-js', to: 'https://ga.jspm.io/npm:hotkeys-js@3.9.4/dist/hotkeys.esm.js'
+pin 'stimulus-use', to: 'https://ga.jspm.io/npm:stimulus-use@0.50.0/dist/index.js'
+pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js', preload: true
+pin_all_from 'app/javascript/controllers', under: 'controllers'
+pin_all_from 'app/components', under: 'components'

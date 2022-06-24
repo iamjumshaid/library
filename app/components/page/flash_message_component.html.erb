@@ -1,0 +1,40 @@
+<div
+  class="container pointer-events-none fixed inset-0 top-16 mx-auto flex items-end justify-center px-4 sm:items-start sm:justify-end sm:px-6 lg:px-10"
+>
+  <div
+    data-controller="page--flash-message"
+    data-page--flash-message-enter-active="transform ease-out duration-300 transition"
+    data-page--flash-message-enter-from="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+    data-page--flash-message-enter-to="translate-y-0 opacity-100 sm:translate-x-0"
+    data-page--flash-message-leave-active="transition ease-in duration-100"
+    data-page--flash-message-leave-from="opacity-100"
+    data-page--flash-message-leave-to="opacity-0"
+    class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+    role="alert"
+  >
+    <div class="p-4">
+      <div class="flex items-start">
+        <div class="flex-shrink-0"><%= icon %></div>
+        <div class="ml-3 w-0 flex-1 pt-0.5">
+          <p class="text-sm font-medium text-gray-900">
+            <%= title %>
+          </p>
+          <% if message %>
+            <p class="mt-1 text-sm text-gray-500">
+              <%= message %>
+            </p>
+          <% end %>
+        </div>
+        <div class="ml-4 flex flex-shrink-0">
+          <button
+            data-action="page--flash-message#hide"
+            class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            <span class="sr-only">close</span>
+            <%= solid_icon('x', class: 'w-5 h-5', 'aria-hidden': 'true') %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

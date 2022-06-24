@@ -1,0 +1,5 @@
+<% flash.each do |type, data| %>
+  <%=
+    render Page::FlashMessageComponent.new(type: type, title: data[:title], message: data[:message])
+  %>
+<% end %>
