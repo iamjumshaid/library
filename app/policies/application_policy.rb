@@ -10,7 +10,7 @@ class ApplicationPolicy
 
   def default_action?
     true
-  end  
+  end
 
   def index?
     false

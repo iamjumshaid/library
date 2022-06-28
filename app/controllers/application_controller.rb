@@ -6,24 +6,26 @@ class ApplicationController < ActionController::Base
 
   before_action :set_resource, if: :on_member?
   before_action :authorize_policy, unless: :devise_controller?
-  
+
   def default_action
     redirect_to resolve_root_url
   end
 
+  # check member methods [:show, :update, :destroy]
   def on_member?
-    !params[:id].blank?
+    params[:id].present?
   end
 
   protected
 
+  # generic method for pundit authorization
   def authorize_policy
     if on_member?
       authorize(set_resource)
-    elsif %w[application home].include?(controller_name)
+    elsif %w[application home].include?(controller_name) # no model correspondance
       authorize(policy_name, policy_action)
     else
-      authorize(controller_name.classify.constantize)
+      authorize(controller_name.classify.constantize) # collection routes
     end
   end
 
@@ -42,6 +44,6 @@ class ApplicationController < ActionController::Base
   end
 
   def policy_action
-    (action_name+'?').to_sym
+    "#{action_name}?".to_sym
   end
 end
