@@ -67,6 +67,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'annotate'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rubocop', '~> 1.30.0', require: nil
   gem 'rubocop-performance', '~> 1.14.0', require: nil
   gem 'rubocop-rails', '~> 2.14.0', require: nil

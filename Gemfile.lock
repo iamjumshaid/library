@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 85016fe969c0ea6044def6192c169a9992747742
+  branch: master
+  specs:
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -281,6 +289,7 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   dry-initializer-rails
+  faker!
   heroicon
   importmap-rails
   jbuilder
