@@ -106,7 +106,7 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
 
 Rails/I18nLocaleTexts: # new in 2.14
-  Enabled: true
+  Enabled: false
   Exclude:
     - 'spec/components/**/*.rb'
 

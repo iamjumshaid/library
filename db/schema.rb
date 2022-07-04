@@ -10,27 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_04_104608) do
+ActiveRecord::Schema.define(version: 2022_07_04_123559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "authors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "no_of_pages"
+    t.integer "author_id"
+    t.integer "publisher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "author_id", null: false
-    t.bigint "publisher_id", null: false
-    t.index ["author_id"], name: "index_books_on_author_id"
-    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "books_categories", id: false, force: :cascade do |t|
@@ -61,12 +53,6 @@ ActiveRecord::Schema.define(version: 2022_07_04_104608) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "publishers", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false
@@ -75,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_104608) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_reviews_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -90,8 +77,6 @@ ActiveRecord::Schema.define(version: 2022_07_04_104608) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "books", "authors"
-  add_foreign_key "books", "publishers"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end
