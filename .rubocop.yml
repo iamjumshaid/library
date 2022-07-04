@@ -54,6 +54,9 @@ Rails/UnknownEnv:
     - test
     - development
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
