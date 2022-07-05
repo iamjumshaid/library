@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
-HomePolicy = Struct.new(:user, :page) do
+ 
+# Policy for a non-corresponding model
+class HomePolicy < Struct.new(:user, :page)
   def index?
     user.present?
   end

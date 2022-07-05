@@ -13,6 +13,7 @@
 
   <body>
     <%= render Page::FlashComponent.new(flash: flash) %>
+    <%= render Page::NavigationComponent.new %>
     <%= yield %>
   </body>
 </html>

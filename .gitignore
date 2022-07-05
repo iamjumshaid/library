@@ -31,6 +31,9 @@
 
 /public/assets
 
+# Gems
+/vendor/bundle
+
 # Packages
 /node_modules
 /yarn-error.log
