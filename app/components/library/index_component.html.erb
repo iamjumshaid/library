@@ -19,7 +19,7 @@
   <%
     books.each do |book|
       c.with_item do
-        book.title
+        render Book::BookComponent.new(book: book)
       end
     end
   %>
