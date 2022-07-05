@@ -1,0 +1,28 @@
+<% if header.present? %>
+  <div class="py-6">
+    <%= header %>
+  </div>
+<% end %>
+<div class="flex flex-col lg:flex-row">
+  <% if sidebar.present? %>
+    <%= sidebar %>
+  <% end %>
+  <div>
+    <% if body.present? %>
+      <div class="px-4 py-5 sm:px-6">
+        <%= body %>
+      </div>
+    <% end %>
+    <% if items.present? || item_template.present? %>
+      <%= tag.ul class: 'divide-y divide-gray-200 text-gray-900', id: items_id do %>
+        <% items.each do |item| %>
+          <%= item %>
+        <% end %>
+        <%= item_template %>
+      <% end %>
+    <% end %>
+    <% if footer.present? %>
+      <%= footer %>
+    <% end %>
+  </div>
+</div>
