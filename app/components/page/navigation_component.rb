@@ -7,9 +7,8 @@ class Page::NavigationComponent < ApplicationComponent
 
   def menu_items
     @menu_items ||= [
-      { text: 'Dashboard', controller: 'home', url: '#' }, 
-      { text: 'Library', controller: '', url: '#' }, 
-      { text: 'My Books', controller: '', url: '#' } 
+      { text: 'Library', url: library_index_path, classes: nav_item_classes('library') }, 
+      { text: 'My Books', url: '#', classes: nav_item_classes(controller) } 
     ]
   end
 

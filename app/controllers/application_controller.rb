@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def authorize_policy
     if on_member?
       authorize(set_resource)
-    elsif %w[application home].include?(controller_name) # no model correspondance
+    elsif %w[application library].include?(controller_name) # no model correspondance
       authorize(policy_name, policy_action)
     else
       authorize(controller_name.classify.constantize) # collection routes
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def resolve_root_url
     if user_signed_in?
-      home_index_path
+      library_index_path
     else
       new_user_session_path
     end
