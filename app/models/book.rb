@@ -14,6 +14,8 @@
 #  updated_at   :datetime         not null
 #
 class Book < ApplicationRecord
+  paginates_per 5
+
   belongs_to :author
   belongs_to :publisher
   has_many :reviews, dependent: :destroy

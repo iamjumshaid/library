@@ -30,6 +30,9 @@
         <%= item_template %>
       <% end %>
     <% end %>
+    <% if paginator.present? %>
+      <%= paginator %>
+    <% end %>
     <% if footer.present? %>
       <%= footer %>
     <% end %>

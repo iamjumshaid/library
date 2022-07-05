@@ -83,6 +83,7 @@ end
 
 gem 'dry-initializer-rails'
 gem 'heroicon'
+gem 'kaminari'
 gem 'pundit', '~> 2.2'
 gem 'tailwindcss-rails', '~> 2.0'
 gem 'view_component'

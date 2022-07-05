@@ -2,6 +2,6 @@
 
 class LibraryController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.order(:title).page params[:page]
   end
 end

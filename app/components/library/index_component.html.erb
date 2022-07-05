@@ -24,6 +24,11 @@
     end
   %>
 
+  <% c.with_paginator do %>
+    <%= paginate books %>
+  <% end %>
+  
+
   <% c.with_sidebar do %>
     <%= render Book::IndexComponent::SidebarComponent.new %>
   <% end %>
