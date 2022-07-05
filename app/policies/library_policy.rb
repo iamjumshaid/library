@@ -1,7 +1,7 @@
 # frozen_string_literal: true
- 
+
 # Policy for a non-corresponding model
-class LibraryPolicy < Struct.new(:user, :page)
+LibraryPolicy = Struct.new(:user, :page) do
   def index?
     user.present?
   end
