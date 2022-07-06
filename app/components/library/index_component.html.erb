@@ -26,6 +26,7 @@
 
   <% c.with_footer do %>
     <%= paginate books, outer_window: 2, window: 2 %>
+    <%= render Book::BookSuggestionsComponent.new(books: books.first(4)) %>
   <% end %>
   
 
