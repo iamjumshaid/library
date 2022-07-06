@@ -2,7 +2,7 @@
 
 class Library::IndexComponent::SortButtonComponent < ApplicationComponent
   class_attribute :param_name
-  
+
   self.param_name = :order
 
   ACTIVE_VALUE = 'chrono'

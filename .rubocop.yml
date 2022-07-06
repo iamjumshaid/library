@@ -78,6 +78,7 @@ Style/ClassAndModuleChildren:
     - 'app/workers/**/*.rb'
     - 'business/**/*.rb'
     - 'spec/**/*.rb'
+    - 'test/components/**/*.rb'
 
 RSpec/FilePath:
   CustomTransform:
@@ -109,6 +110,9 @@ Rails/I18nLocaleTexts: # new in 2.14
   Enabled: false
   Exclude:
     - 'spec/components/**/*.rb'
+
+Style/EmptyMethod:
+  Enabled: false
 
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true

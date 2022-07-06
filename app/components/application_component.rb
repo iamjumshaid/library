@@ -3,7 +3,7 @@
 class ApplicationComponent < ViewComponent::Base
   extend Dry::Initializer
   include Turbo::FramesHelper
-  
+
   # Identifier compatible to Stimulus controller identifier
   def identifier
     @identifier ||= self.class.name.delete_suffix('Component').underscore.split('/').join('--').dasherize

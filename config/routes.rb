@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :library
-  resources :books do 
-    collection do 
+  resources :books do
+    collection do
       get :suggestions
     end
   end
