@@ -1,38 +1,33 @@
-<%= render Page::CardComponent.new do |c| %>
-  <% c.with_title do %>
-    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Library</h2>
-  <% end %>
-
-  <% c.with_header do %>
-    <div class="flex justify-end">
-      <%= button_tag type: :submit, name: nil, class: ['flex items-center rounded-md px-2 py-1 hover:bg-indigo-600 hover:text-white', { 'bg-indigo-600 text-white': false, 'bg-transparent text-indigo-600': !false }] do %>
-        <%= solid_icon 'sort-descending', class: 'w-5 h-5 mr-1', 'aria-hidden': true %>
-        <% if false %>
-          Chronological ordered
-        <% else %>
-          Chronological order
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%
-    books.each do |book|
-      c.with_item do
-        render Book::BookComponent.new(book: book)
-      end
-    end
-  %>
-
-  <% c.with_footer do %>
-    <%= paginate books, outer_window: 2, window: 2 %>
-    <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>
-      <%= render Page::LoadingComponent.new %>
+<%= turbo_frame_tag 'books' do %>
+  <%= render Page::CardComponent.new do |c| %>
+    <% c.with_title do %>
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Library</h2>
     <% end %>
-  <% end %>
-  
 
-  <% c.with_sidebar do %>
-    <%= render Book::IndexComponent::SidebarComponent.new %>
+    <% c.with_header do %>
+      <div class="flex justify-end">
+        <%= render Library::IndexComponent::SortButtonComponent.new(order_param: params[:order]) %>
+      </div>
+    <% end %>
+
+    <%
+      books.each do |book|
+        c.with_item do
+          render Book::BookComponent.new(book: book)
+        end
+      end
+    %>
+
+    <% c.with_footer do %>
+      <%= paginate books, outer_window: 2, window: 2 %>
+      <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>
+        <%= render Page::LoadingComponent.new %>
+      <% end %>
+    <% end %>
+    
+
+    <% c.with_sidebar do %>
+      <%= render Book::IndexComponent::SidebarComponent.new %>
+    <% end %>
   <% end %>
 <% end %>

@@ -1,0 +1,14 @@
+<%= form_with(url: library_index_path, method: 'get', html: { data: { turbo_action: 'advance', turbo_frame: 'outer-frame' } }) do |form| %>
+  <% unless active? %>
+    <%= form.hidden_field self.class.param_name, value: ACTIVE_VALUE %>
+  <% end %>
+
+  <%= button_tag type: :submit, name: nil, class: ['flex items-center rounded-md px-2 py-1 hover:bg-indigo-600 hover:text-white', { 'bg-indigo-600 text-white': active?, 'bg-transparent text-indigo-600': !active? }] do %>
+    <%= solid_icon 'sort-descending', class: 'w-5 h-5 mr-1', 'aria-hidden': true %>
+    <% if active? %>
+      Chronological ordered
+    <% else %>
+      Chronological order
+    <% end %>
+  <% end %>
+<% end %>
