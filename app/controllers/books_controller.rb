@@ -3,7 +3,7 @@
 class BooksController < ApplicationController
   def index
     @books = current_user.books.includes(:author, :publisher, :categories).page(params[:page])
-
+    @books = @books.includes(:categories).where(categories: { name: params[:category] }) if params[:category]
     @books = @books.order(:title) if params[:order]
   end
 
