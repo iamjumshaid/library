@@ -27,7 +27,7 @@
     
 
     <% c.with_sidebar do %>
-      <%= render Book::IndexComponent::SidebarComponent.new %>
+      <%= render Book::IndexComponent::SidebarComponent.new(books: books, results_count: books.count) %>
     <% end %>
   <% end %>
 <% end %>

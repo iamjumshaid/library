@@ -1,0 +1,24 @@
+<div data-controller="<%= identifier %>">
+  <label id="listbox-label" class="block text-sm font-medium text-gray-700"> Categories </label>
+  <div class="mt-1 relative">
+    <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label" data-action="<%= identifier %>#toggle click@window-><%= identifier %>#hide">
+      <span class="block truncate"> <%= selected_category %> </span>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+        <%= solid_icon('selector', class: 'w-5 h-5 text-gray-400', 'aria-hidden': 'true') %>
+      </span>
+    </button>
+    <ul class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm hidden" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3" data-book--index-component--filter-component--category-target="menu">
+      <% menu_items.each do |menu_item| %>
+        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+          <span class="block truncate <%= selected_category == menu_item ? 'font-semibold' : 'font-normal' %>"> <%= menu_item %> </span>
+          <% if selected_category == menu_item %>
+            <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+              <%= solid_icon('check', class: 'w-5 h-5', 'aria-hidden': 'true') %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
