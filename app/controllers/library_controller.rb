@@ -2,6 +2,6 @@
 
 class LibraryController < ApplicationController
   def index
-    @books = Book.order(:title).page params[:page]
+    @books = current_user.books.includes(:author, :categories).order(:title).page(params[:page])
   end
 end

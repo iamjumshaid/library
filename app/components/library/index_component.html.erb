@@ -24,8 +24,8 @@
     end
   %>
 
-  <% c.with_paginator do %>
-    <%= paginate books %>
+  <% c.with_footer do %>
+    <%= paginate books, outer_window: 2, window: 2 %>
   <% end %>
   
 

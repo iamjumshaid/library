@@ -21,17 +21,14 @@
       </div>
     <% end %>
     <% if items.present? || item_template.present? %>
-      <%= tag.ul class: 'divide-y divide-gray-200 text-gray-900' do %>
+      <%= tag.ul class: 'text-gray-900' do %>
         <% items.each do |item| %>
-          <%= tag.li class: 'px-4 py-5 border-t border-gray-200 sm:px-6' do %>
+          <%= tag.li class: 'px-4 py-5 border-b border-gray-200 sm:px-6' do %>
             <%= item %>
           <% end %>
         <% end %>
         <%= item_template %>
       <% end %>
-    <% end %>
-    <% if paginator.present? %>
-      <%= paginator %>
     <% end %>
     <% if footer.present? %>
       <%= footer %>
