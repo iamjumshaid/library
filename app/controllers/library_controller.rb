@@ -3,7 +3,8 @@
 class LibraryController < ApplicationController
   def index
     @books = Book.includes(:author, :publisher, :categories).page(params[:page])
-    @books = @books.includes(:categories).where(categories: { name: params[:category] }) if params[:category]
+    @books = @books.where(categories: { name: params[:category] }) if params[:category]
+    @books = @books.joins(:author).where('people.name LIKE ?', "%#{params[:author]}%") if params[:author]
     @books = @books.order(:title) if params[:order]
   end
 end

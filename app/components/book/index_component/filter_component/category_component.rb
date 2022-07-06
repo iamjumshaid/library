@@ -16,8 +16,4 @@ class Book::IndexComponent::FilterComponent::CategoryComponent < ApplicationComp
   def active_category?(category)
     selected_category == category
   end
-
-  def url
-    helpers.controller_name == 'library' ? library_index_path : books_path
-  end
 end

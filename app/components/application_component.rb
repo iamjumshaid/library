@@ -17,4 +17,9 @@ class ApplicationComponent < ViewComponent::Base
   def outline_icon(name, **options)
     helpers.heroicon name, variant: :outline, options: options
   end
+
+  # Form submission url for my books and library page
+  def url
+    helpers.controller_name == 'library' ? library_index_path : books_path
+  end
 end
