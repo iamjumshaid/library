@@ -8,6 +8,10 @@ class BookPolicy < ApplicationPolicy
     # end
   end
 
+  def index?
+    user.present?
+  end
+
   def suggestions?
     user.present?
   end

@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  def index
+    @books = current_user.books.includes(:author, :publisher, :categories).page(params[:page])
+
+    @books = @books.order(:title) if params[:order]
+  end
+
   def suggestions
     # recommend user books from their pre-liked categories
     # also only the books that user has not bought already

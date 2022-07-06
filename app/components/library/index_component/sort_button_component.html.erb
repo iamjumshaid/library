@@ -1,4 +1,4 @@
-<%= form_with(url: library_index_path, method: 'get', html: { data: { turbo_action: 'advance', turbo_frame: 'outer-frame' } }) do |form| %>
+<%= form_with(url: url, method: 'get', html: { data: { turbo_action: 'advance', turbo_frame: 'outer-frame' } }) do |form| %>
   <% unless active? %>
     <%= form.hidden_field self.class.param_name, value: ACTIVE_VALUE %>
   <% end %>

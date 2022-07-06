@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'books' do %>
   <%= render Page::CardComponent.new do |c| %>
     <% c.with_title do %>
-      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Library</h2>
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"><%= title %></h2>
     <% end %>
 
     <% c.with_header do %>
