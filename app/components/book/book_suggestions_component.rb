@@ -2,4 +2,8 @@
 
 class Book::BookSuggestionsComponent < ApplicationComponent
   option :books
+
+  def render?
+    books.any?
+  end
 end
