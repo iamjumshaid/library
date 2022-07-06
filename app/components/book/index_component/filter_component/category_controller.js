@@ -1,3 +1,13 @@
-import Dropdown from 'stimulus-dropdown'
+import { Controller } from '@hotwired/stimulus'
+import Rails from '@rails/ujs'
 
-export default Dropdown
+export default class extends Controller {
+  clear(event) {
+    event.target.value = event.target.name = ''
+    this.submit()
+  }
+
+  submit() {
+    Rails.fire(this.element, 'submit')
+  }
+}

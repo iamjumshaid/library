@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="mt-5 pt-5 lg:mt-0">
-      <%= render Book::IndexComponent::FilterComponent::CategoryComponent.new(categories: Category.joins(:books).where(books: books)) %>
+      <%= render Book::IndexComponent::FilterComponent::CategoryComponent.new(categories: Category.joins(:books).where(books: books).uniq) %>
     </div>
   </div>
 </aside>

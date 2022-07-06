@@ -12,4 +12,8 @@ class Book::IndexComponent::FilterComponent::CategoryComponent < ApplicationComp
   def selected_category
     params[:category] || EMPTY_STATE
   end
+
+  def active_category?(category)
+    selected_category == category
+  end
 end
