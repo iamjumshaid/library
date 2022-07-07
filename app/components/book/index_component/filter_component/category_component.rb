@@ -6,7 +6,7 @@ class Book::IndexComponent::FilterComponent::CategoryComponent < Book::IndexComp
   self.param_name = :category
 
   EMPTY_STATE = 'Select any Category'
-  
+
   def selected_category
     params[:category] || EMPTY_STATE
   end

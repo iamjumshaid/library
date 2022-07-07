@@ -11,6 +11,9 @@ class Book::IndexComponent::FilterComponent::BaseComponent < ApplicationComponen
     category
   ].freeze
 
+  # Removing the applied filter from the search params
+  # and appending the rest of the filters in hidden field
+  # to enable applying multiple filters at once
   def search_params
     @search_params ||= SEARCH_PARAMS - [param_name]
   end
