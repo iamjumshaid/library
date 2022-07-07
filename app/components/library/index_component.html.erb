@@ -1,34 +1,31 @@
+<%= render Page::CardComponent.new do |c| %>
+  <% c.with_title do %>
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"><%= title %></h2>
+  <% end %>
 
-  <%= render Page::CardComponent.new do |c| %>
-    <% c.with_title do %>
-      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"><%= title %></h2>
-    <% end %>
+  <% c.with_header do %>
+    <div class="flex justify-end">
+      <%= render Library::IndexComponent::SortButtonComponent.new(order_param: params[:order]) %>
+    </div>
+  <% end %>
 
-    <% c.with_header do %>
-      <div class="flex justify-end">
-        <%= render Library::IndexComponent::SortButtonComponent.new(order_param: params[:order]) %>
-      </div>
-    <% end %>
-
-    <%
-      books.each do |book|
-          c.with_item do
-          turbo_frame_tag 'books' do
-            render Book::BookComponent.new(book: book)
-          end
-        end
+  <%
+    books.each do |book|
+      c.with_item do
+        render Book::BookComponent.new(book: book)
       end
-    %>
+    end
+  %>
 
-    <% c.with_footer do %>
-      <%= paginate books, outer_window: 2, window: 2 %>
-      <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>
-        <%= render Page::LoadingComponent.new %>
-      <% end %>
-    <% end %>
-    
-
-    <% c.with_sidebar do %>
-      <%= render Book::IndexComponent::SidebarComponent.new(books: books, results_count: books.count) %>
+  <% c.with_footer do %>
+    <%= paginate books, outer_window: 2, window: 2 %>
+    <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>
+      <%= render Page::LoadingComponent.new %>
     <% end %>
   <% end %>
+  
+
+  <% c.with_sidebar do %>
+    <%= render Book::IndexComponent::SidebarComponent.new(books: books, results_count: books.count) %>
+  <% end %>
+<% end %>
