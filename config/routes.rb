@@ -15,4 +15,6 @@ Rails.application.routes.draw do
       get :suggestions
     end
   end
+
+  post '/book/:id/buy', to: 'books#buy_now', as: 'buy_book'
 end

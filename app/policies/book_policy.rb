@@ -16,6 +16,10 @@ class BookPolicy < ApplicationPolicy
     user.present?
   end
 
+  def buy_now?
+    user.present?
+  end
+
   def suggestions?
     user.present?
   end
