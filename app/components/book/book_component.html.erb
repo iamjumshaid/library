@@ -1,32 +1,32 @@
-<%= link_to book_path(book), data: { turbo: 'false' }, class: "block hover:bg-gray-50" do %>
-  <div class="px-4 py-4 sm:px-6">
-    <p class="text-sm font-medium text-indigo-600 truncate"><%= book.title %></p>
-    <div class="flex-shrink-0 flex mt-2">
-      <% book.categories.each do |category| %>
-        <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><%= category.name %></p>
+<div class="px-4 py-4 sm:px-6">
+  <%= link_to book_path(book), data: { turbo: 'false' }, class: 'group text-sm font-medium text-indigo-600 inline' do %>
+    <span><%= book.title %></span>
+    <%= outline_icon 'link', class: 'ml-2 w-5 h-5 hidden group-hover:inline', 'aria-hidden': true %>
+  <% end %>
+  <div class="flex-shrink-0 flex mt-2">
+    <% book.categories.each do |category| %>
+      <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><%= category.name %></p>
+    <% end %>
+  </div>
+  <div class="text-sm mt-2 text-gray-500">
+    <span class="font-semibold text-gray-600">Author: </span>
+    <%= book.author.name %>
+  </div>
+  <div class="text-sm mt-2 text-gray-500">
+    <span class="font-semibold text-gray-600">Publisher: </span>
+    <%= book.publisher.name %>
+  </div>
+  <p class="text-sm text-gray-500 my-3">
+    <%= book.description %>
+  </p>
+  <div class="mt-2 sm:flex sm:justify-between">
+    <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+      <%= outline_icon 'information-circle', class: 'w-5 h-5 mr-1', 'aria-hidden': true %>
+      <p>Total pages: <%= book.no_of_pages %></p>
+      <% if readable? %>
+        <%= outline_icon 'book-open', class: 'ml-4 w-5 h-5 mr-1', 'aria-hidden': true %>
+        <%= link_to 'Read Now', rails_blob_path(book.ebook, disposition: :inline), target: '_blank' %>
       <% end %>
     </div>
-    <div class="text-sm mt-2 text-gray-500">
-      <span class="font-semibold text-gray-600">Author: </span>
-      <%= book.author.name %>
-    </div>
-    <div class="text-sm mt-2 text-gray-500">
-      <span class="font-semibold text-gray-600">Publisher: </span>
-      <%= book.publisher.name %>
-    </div>
-    <p class="text-sm text-gray-500 my-3">
-      <%= book.description %>
-    </p>
-<% end %>    
-    <div class="mt-2 sm:flex sm:justify-between">
-      <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-        <%= outline_icon 'information-circle', class: 'w-5 h-5 mr-1', 'aria-hidden': true %>
-        <p>Total pages: <%= book.no_of_pages %></p>
-        <% if readable? %>
-          <%= outline_icon 'book-open', class: 'ml-4 w-5 h-5 mr-1', 'aria-hidden': true %>
-          <%= link_to 'Read Now', rails_blob_path(book.ebook, disposition: :inline), target: '_blank' %>
-        <% end %>
-      </div>
-    </div>
   </div>
-
+</div>
