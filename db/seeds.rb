@@ -23,6 +23,8 @@ end
   no_of_pages = 250
 
   book = Book.create!(title: Faker::Book.unique.title, description: Faker::Lorem.paragraph_by_chars, no_of_pages: no_of_pages, author_id: author.id, publisher_id: publisher.id)
+  book.ebook.attach(io: File.open('agile-web-development-with-rails-6.pdf'), filename: 'agile-web-developm
+  ent-with-rails-6.pdf', content_type: 'application/pdf')
 
   category = Category.find_by(id: rand(1..10))
   book.categories << category
