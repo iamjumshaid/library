@@ -2,4 +2,8 @@
 
 class Book::BookComponent < ApplicationComponent
   option :book, model: 'Book'
+
+  def readable?
+    helpers.controller_name == 'books'
+  end
 end
