@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <div class="mt-5 pt-5 lg:mt-0">
-      <%= render Book::IndexComponent::FilterComponent::CategoryComponent.new(categories: Category.joins(:books).where(books: books).uniq) %>
+      <%= render Book::IndexComponent::FilterComponent::CategoryComponent.new(categories: categories) %>
       <%= render Book::IndexComponent::FilterComponent::TitleComponent.new %>
       <%= render Book::IndexComponent::FilterComponent::AuthorComponent.new %>
     </div>

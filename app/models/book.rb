@@ -30,8 +30,8 @@ class Book < ApplicationRecord
   def self.filter(result: nil, author: nil, title: nil, category: nil, order: nil)
     result ||= all
     result = result.joins(:categories).where(categories: { name: category }) if category
-    result = result.joins(:author).where('people.name LIKE ?', "%#{author}%") if author
-    result = result.where('title LIKE ?', "%#{title}%") if title
+    result = result.joins(:author).where('people.name ILIKE ?', "%#{author.downcase}%") if author
+    result = result.where('title ILIKE ?', "%#{title.downcase}%") if title
     result = result.order(:title) if order
 
     result

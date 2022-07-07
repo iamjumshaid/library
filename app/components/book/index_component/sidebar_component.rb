@@ -9,4 +9,9 @@ class Book::IndexComponent::SidebarComponent < ApplicationComponent
     author
     category
   ].freeze
+
+  def categories
+    @categories ||= Category.all
+  end
+  
 end
