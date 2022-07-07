@@ -6,6 +6,11 @@
         <%= results_count.to_s+' results' %>
       </p>
     </div>
+    <div class="flex flex-wrap gap-2 my-4">
+      <% SEARCH_FILTERS.each do |filter| %>
+        <%= render Book::IndexComponent::FilterComponent::SelectedFiltersComponent.new(filter: filter) %>
+      <% end %>
+    </div>
     <div class="mt-5 pt-5 lg:mt-0">
       <%= render Book::IndexComponent::FilterComponent::CategoryComponent.new(categories: Category.joins(:books).where(books: books).uniq) %>
       <%= render Book::IndexComponent::FilterComponent::TitleComponent.new %>
