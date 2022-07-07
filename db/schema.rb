@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2022_07_07_105409) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "no_of_pages"
+    t.string "title", null: false
+    t.string "description", null: false
+    t.integer "no_of_pages", null: false
     t.integer "author_id"
     t.integer "publisher_id"
     t.datetime "created_at", precision: 6, null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_07_07_105409) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_07_07_105409) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

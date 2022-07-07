@@ -87,3 +87,7 @@ gem 'kaminari'
 gem 'pundit', '~> 2.2'
 gem 'tailwindcss-rails', '~> 2.0'
 gem 'view_component'
+
+# https://github.com/rmagick/rmagick#using-rmagick
+# brew install pkg-config imagemagick [
+gem 'rmagick' # requires imagemagick

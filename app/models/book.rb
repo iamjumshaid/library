@@ -19,6 +19,7 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :publisher
   has_one_attached :ebook
+  has_many_attached :previews
   has_many :reviews, dependent: :destroy
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :users

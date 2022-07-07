@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faker'
+require 'RMagick'
 
 # books categories
 10.times do
@@ -43,3 +44,22 @@ end
 
 # To test the books suggestions
 User.first.categories << Category.first(3)
+
+# Adding image attachments as PDF preview for book
+Book.all.each do |book|
+  directory_name = 'pdf-previews'
+  FileUtils.mkdir(directory_name)
+  page = 0
+
+  # 5 preview images per book
+  5.times do
+    # reads just the specified page of the book
+    file_name = "agile-web-development-with-rails-6.pdf[#{page}]"
+    image = Magick::Image.read(file_name)
+    image[0].write("#{directory_name}/#{file_name}.jpg")
+
+    book.previews.attach(io: File.open("#{directory_name}/#{file_name}.jpg"), filename: file_name)
+    page += 5
+  end
+  FileUtils.rm_rf(directory_name)
+end
