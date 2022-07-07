@@ -3,9 +3,9 @@
 class BookPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      scope.includes(:author, :publisher, :categories).joins(:users).where(users: [user])
+    end
   end
 
   def index?
