@@ -1,0 +1,10 @@
+<%= form_with(url: url, method: 'get', local: true, html: { data: { controller: identifier, turbo_action: 'advance', turbo_frame: 'outer-frame' } }) do |form| %>
+  <label id="author-label" class="mt-4 block text-sm font-medium text-gray-700"> Title </label>
+  <div class="mt-1 relative">
+   <div
+      class="absolute mt-1 max-h-60 w-full"
+      >
+     <%= form.text_field :title, data: { action: "change->#{identifier}#submit"}, placeholder: 'Filter by book title', class: 'bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>            
+   </div>
+</div>
+<% end %>

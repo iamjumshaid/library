@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'books' do %>
+
   <%= render Page::CardComponent.new do |c| %>
     <% c.with_title do %>
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"><%= title %></h2>
@@ -12,8 +12,10 @@
 
     <%
       books.each do |book|
-        c.with_item do
-          render Book::BookComponent.new(book: book)
+          c.with_item do
+          turbo_frame_tag 'books' do
+            render Book::BookComponent.new(book: book)
+          end
         end
       end
     %>
@@ -30,4 +32,3 @@
       <%= render Book::IndexComponent::SidebarComponent.new(books: books, results_count: books.count) %>
     <% end %>
   <% end %>
-<% end %>
