@@ -28,7 +28,7 @@ class Book < ApplicationRecord
   validates_associated :author, :publisher
 
   def self.filter(result: nil, author: nil, title: nil, category: nil, order: nil)
-    result = result || all
+    result ||= all
     result = result.joins(:categories).where(categories: { name: category }) if category
     result = result.joins(:author).where('people.name LIKE ?', "%#{author}%") if author
     result = result.where('title LIKE ?', "%#{title}%") if title
@@ -36,5 +36,4 @@ class Book < ApplicationRecord
 
     result
   end
-  
 end
