@@ -6,5 +6,4 @@ class Book::ShowComponent < ApplicationComponent
   def average_rating
     @average_rating ||= book.reviews.average(:rating).to_i
   end
-  
 end

@@ -12,7 +12,6 @@ class BooksController < ApplicationController
   def show
     render Book::ShowComponent.new(book: @book)
   end
-  
 
   def suggestions
     # recommend user books from their pre-liked categories

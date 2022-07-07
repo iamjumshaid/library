@@ -40,3 +40,6 @@ count = 1
   Review.create!(user_id: user.id, book_id: book.id, rating: rand(1..5), comment: Faker::Lorem.question)
   count += 1
 end
+
+# To test the books suggestions
+User.first.categories << Category.first(3)
