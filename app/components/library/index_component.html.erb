@@ -17,6 +17,12 @@
     end
   %>
 
+  <% if books.empty? %>
+    <% c.with_item do %>
+      <%= render Page::MessageComponent.new(message: 'No items to display.') %>
+    <% end %>
+  <% end %>
+
   <% c.with_footer do %>
     <%= paginate books, outer_window: 2, window: 2 %>
     <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>

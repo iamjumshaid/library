@@ -13,5 +13,4 @@ class Book::IndexComponent::SidebarComponent < ApplicationComponent
   def categories
     @categories ||= Category.all
   end
-  
 end
