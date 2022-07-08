@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'faker'
-require 'RMagick'
+require 'rmagick'
 
 # books categories
 10.times do
@@ -18,7 +18,7 @@ end
 end
 
 # books, authors, publishers
-100.times do
+30.times do
   publisher = Publisher.create!(name: Faker::Book.publisher)
   author = Author.create!(name: Faker::Book.author)
   no_of_pages = 250

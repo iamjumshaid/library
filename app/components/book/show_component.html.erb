@@ -79,9 +79,9 @@
         </div>
       <% end %>
     </div>
+    <%= render Book::ShowComponent::PreviewComponent.new(book: book) %>
   <% end %>
   <% c.with_footer do %>
-    <%= render Book::PreviewComponent.new(book: book) %>
     <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>
       <%= render Page::LoadingComponent.new %>
     <% end %>
