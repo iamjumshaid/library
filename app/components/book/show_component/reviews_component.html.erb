@@ -2,8 +2,10 @@
   <div class="bg-white py-6 border-b border-gray-200">
     <h3 class="text-lg leading-6 font-medium text-gray-900">Recent Reviews</h3>
   </div>
-  <% reviews.each do |review|%>
-    <%= render Review::ReviewComponent.new(review: review) %>
+  <% if reviews.any? %>
+    <% reviews.each do |review|%>
+      <%= render Review::ReviewComponent.new(review: review) %>
+    <% end %>
   <% end %>
   <%= render Review::NewComponent.new(book: book) %>
 </div>

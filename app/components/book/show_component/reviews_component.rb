@@ -6,8 +6,4 @@ class Book::ShowComponent::ReviewsComponent < ApplicationComponent
   def reviews
     @reviews ||= book.reviews
   end
-
-  def render?
-    reviews.any?
-  end
 end
