@@ -3,7 +3,12 @@
 class Book::ShowComponent::PreviewComponent < ApplicationComponent
   option :book, model: 'Book'
 
+  def previews
+    @previews ||= book.previews
+  end
+  
+
   def render?
-    book.previews.any?
+    previews.any?
   end
 end
