@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get :suggestions
     end
+    resources :reviews
   end
 
   post '/book/:id/buy', to: 'books#buy_now', as: 'buy_book'

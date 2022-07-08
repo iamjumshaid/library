@@ -12,7 +12,6 @@
         <div class="sm:col-span-8 lg:col-span-7">
           <h2 class="text-2xl font-extrabold text-gray-900 sm:pr-12"><%= book.title %></h2>
           <p class="text-2xl text-gray-900">$12.67</p>
-
           <p class="text-sm text-gray-500 my-3">
             <%= book.description %>
           </p>
@@ -37,7 +36,7 @@
               <div class="flex items-center">
                 <div class="flex items-center">
                   <% average_rating.times.each do %>
-                    <%= solid_icon('star', class: 'text-gray-900 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
+                    <%= solid_icon('star', class: 'text-yellow-400 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
                   <% end %>
                   <% (5-average_rating).times.each do %>
                     <%= solid_icon('star', class: 'text-gray-200 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
@@ -53,8 +52,8 @@
         </div>
       </div>
     <% end %>
-    <%= render Book::ShowComponent::ReviewComponent.new(book: book) %>
-    <%= render Book::ShowComponent::PreviewComponent.new(book: book) %>
+    <%= render Book::ShowComponent::PreviewsComponent.new(book: book) %>
+    <%= render Book::ShowComponent::ReviewsComponent.new(book: book) %>
   <% end %>
   <% c.with_footer do %>
     <%= turbo_frame_tag 'books_suggestion', src: suggestions_books_path, loading: :lazy do %>

@@ -1,0 +1,23 @@
+<div class="flex items-start space-x-4 w-1/2">
+  <div class="flex-shrink-0">
+    <%= outline_icon('user-circle', class: 'text-gray-500 w-10 h-10', 'aria-hidden': 'true') %>
+  </div>
+  <div class="min-w-0 flex-1">
+    <form action="#">
+      <div class="border-b border-gray-200 focus-within:border-indigo-600">
+        <label for="comment" class="sr-only">Add your comment</label>
+        <textarea rows="3" name="comment" id="comment" class="block w-full border-0 border-b border-transparent p-0 pb-2 resize-none focus:ring-0 focus:border-indigo-600 sm:text-sm" placeholder="Add your comment..."></textarea>
+      </div>
+      <div class="pt-2 flex justify-between">
+        <div class="flex items-center col-span-3">
+          <% 5.times.each do %>
+            <%= solid_icon('star', class: 'text-gray-200 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
+          <% end %>
+        </div>
+        <div class="flex-shrink-0">
+          <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Post</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

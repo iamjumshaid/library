@@ -1,0 +1,22 @@
+<div class="grid grid-cols-12 items-start py-6">
+  <div class="flex col-span-3">
+    <%= outline_icon('user-circle', class: 'text-gray-500 w-10 h-10', 'aria-hidden': 'true') %>
+    <div class="flex flex-col gap-1 ml-4">
+      <span><%= user_name(review.user.email) %></span>
+      <span class="text-sm text-gray-500"><%= review.created_at.strftime("%B %e %Y") %></span>
+    </div>
+  </div>
+  <div class="flex items-center col-span-3">
+    <% review.rating.times.each do %>
+      <%= solid_icon('star', class: 'text-yellow-400 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
+    <% end %>
+    <% (5-review.rating).times.each do %>
+      <%= solid_icon('star', class: 'text-gray-200 h-5 w-5 flex-shrink-0', 'aria-hidden': 'true') %>
+    <% end %>
+  </div>
+  <div class="col-span-6">
+    <p class="text-sm text-gray-500">
+      <%= review.comment %>
+    </p>
+  </div>
+</div>

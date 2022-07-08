@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Book::ShowComponent::PreviewComponent < ApplicationComponent
+class Book::ShowComponent::PreviewsComponent < ApplicationComponent
   option :book, model: 'Book'
 
   def previews
